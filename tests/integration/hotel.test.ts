@@ -200,11 +200,20 @@ describe("GET /hotels/:hotelId", () => {
       expect(response.status).toEqual(httpStatus.OK);
       expect(response.body).toEqual({
         id: expect.any(Number),
-        name: rooms.name,
-        capacity: rooms.capacity,
-        hotelId: createHotels.id,
+        name: createHotels.name,
+        image: createHotels.image,
         createdAt: expect.any(String),
         updatedAt: expect.any(String),
+        Rooms: expect.arrayContaining([
+          expect.objectContaining({
+            id: rooms.id,
+            name: rooms.name,
+            capacity: rooms.capacity,
+            hotelId: rooms.hotelId,
+            createdAt: expect.any(String),
+            updatedAt: expect.any(String)
+          }) 
+        ])
       });
     });
   });

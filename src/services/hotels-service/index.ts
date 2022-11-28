@@ -23,7 +23,6 @@ async function getHotels(userId: number) {
   if (!hotels) {
     throw notFoundError();
   }
-  
   return hotels;
 }
 
@@ -46,7 +45,6 @@ async function getRoomsAvaiable(userId: number, hotelId: string) {
   if (!rooms) {
     throw notFoundError();
   }
-
   return rooms;
 }
 
