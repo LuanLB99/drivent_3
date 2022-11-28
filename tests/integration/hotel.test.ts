@@ -96,13 +96,13 @@ describe("GET /hotels", () => {
       
       const response = await server.get("/hotels").set("Authorization", `Bearer ${token}`);
       expect(response.status).toEqual(httpStatus.OK);
-      expect(response.body).toEqual([{
+      expect(response.body).toEqual(expect.arrayContaining([expect.objectContaining({
         id: expect.any(Number),
         name: createHotels.name,
         image: createHotels.image,
         createdAt: expect.any(String),
         updatedAt: expect.any(String),
-      }]);
+      })]));
     });
   });
 });
