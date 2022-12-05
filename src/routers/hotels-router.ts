@@ -8,4 +8,5 @@ hotelsRouter
   .all("/*", authenticateToken)
   .get("", authenticateToken, getHotelsAvaiable)
   .get("/:hotelId", authenticateToken, getRoom);
+  
 export { hotelsRouter };
